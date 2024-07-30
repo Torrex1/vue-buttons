@@ -1,0 +1,5 @@
+@import './base.css';
+
+li {
+    list-style-type: none;
+}
