@@ -1,4 +1,6 @@
 :root {
     --border-color: #D5E3F0;
     --radio-bg: #2699D4;
+    --disabled-border: #ABBCD1;
+    --disabled-bg: #D5E3F0;
 }
