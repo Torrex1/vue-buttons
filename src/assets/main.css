@@ -2,4 +2,5 @@
 
 li {
     list-style-type: none;
+    display: flex;
 }
