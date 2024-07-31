@@ -71,7 +71,7 @@
 }
 
 input[type="radio"] { 
-  display: none;
+  /* display: none; */
 }
 
 label {
@@ -102,25 +102,18 @@ input[type="radio"]:checked + .customRadio::before {
   margin: 5px;
 }
 
-/* 
-label::before {
+input[type="radio"]:hover + .customRadio::before, .customRadio:hover::before {
   content: "";
   display: inline-block;
-  width: 20px;
-  height: 20px;
-  border: 1px solid var(--border-color);
-  background-color: #fff;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
+  margin: 5px;
+  background-color: #D5E3F0;
 }
 
-input[type="radio"]:checked + label::before {
-  background-color: var(--radio-bg);
-} */
+input[type="radio"]:focus + .customRadio {
+  box-shadow: 0px 0px 4px 2px #0066AF99;
 
-
-
-/* input[type="radio"]:checked + label::before {
-  background-color: var(--radio-bg);
-} */
-
+}
 </style>
