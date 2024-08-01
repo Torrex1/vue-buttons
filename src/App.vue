@@ -32,9 +32,9 @@
       </li>
 
       <li>
-        <input id="rb5" type="radio">
+        <input id="rb5" type="radio" disabled>
         <span class="customRadio"></span>
-        <label for="rb5">Текст переключателя</label>
+        <label for="rb5" style="color: var(--error-border);">Текст переключателя</label>
       </li>
     </ul>
   
@@ -58,7 +58,7 @@
 }
 
 input[type="radio"] { 
-  /* display: none; */
+  opacity: 0;
 }
 
 label {
@@ -111,5 +111,14 @@ input[type="radio"]:disabled + .customRadio {
 
 input[type="radio"]:disabled:checked + .customRadio::before {
   background-color: #6E7F99;
+}
+
+#rb5 + .customRadio {
+  border: 1px solid var(--error-border);
+  background-color: var(--error-bg);
+}
+
+#rb5 + .customRadio::before {
+  background-color: var(--error-bg);
 }
 </style>
