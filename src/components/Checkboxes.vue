@@ -77,5 +77,20 @@ input[type="checkbox"]:checked + .customCheckbox::before {
     background-repeat: no-repeat;
 }
 
+input[type="checkbox"]:disabled + .customCheckbox {
+    background-color: var(--disabled-bg);
+    border: 1px solid var(--disabled-border);
+    cursor: default;
+}
+
+input[type="checkbox"]:disabled:checked + .customCheckbox::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url('../assets/img/VectorDisabled.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
 </style>
