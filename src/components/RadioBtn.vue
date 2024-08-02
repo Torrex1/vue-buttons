@@ -53,7 +53,7 @@
 }
 
 input[type="radio"] { 
-  opacity: 0;
+  appearance: none;
 }
 
 label {
