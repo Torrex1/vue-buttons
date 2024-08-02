@@ -4,3 +4,23 @@ li {
     list-style-type: none;
     display: flex;
 }
+
+@font-face {
+    font-family: "SourceSans-regular";
+    src: url('./fonts/SourceSans3-Regular.ttf');
+  }
+  
+  @font-face {
+    font-family: "SourceSans-bold";
+    src: url('./fonts/SourceSans3-Bold.ttf');
+  }
+  
+  @font-face {
+    font-family: "SourceSans-medium";
+    src: url('./fonts/SourceSans3-Medium.ttf');
+  }
+
+  * {
+    font-family: "SourceSans-regular";
+  }
+  
