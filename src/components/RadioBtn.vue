@@ -7,7 +7,7 @@
         <label>
           <input type="radio" checked>
           <span class="customRadio"></span>
-          Текст переключателя
+          Текст переключателя (on)
         </label>
       </li>
 
@@ -15,7 +15,7 @@
         <label>
           <input type="radio">
           <span class="customRadio"></span>
-          Текст переключателя
+          Текст переключателя (off)
         </label>
       </li>
 
@@ -23,7 +23,7 @@
         <label>
           <input type="radio" disabled>
           <span class="customRadio"></span>
-          Текст переключателя
+          Текст переключателя (disabled)
         </label>
       </li>
 
@@ -31,7 +31,7 @@
         <label>
           <input type="radio" disabled checked>
           <span class="customRadio"></span>
-          Текст переключателя
+          Текст переключателя (disabled on)
         </label>
       </li>
 
@@ -39,7 +39,7 @@
         <label style="color: var(--error-border);">
           <input id="rb5" type="radio" disabled>
           <span class="customRadio"></span>
-          Текст переключателя
+          Текст переключателя (error)
         </label>
       </li>
     </ul>

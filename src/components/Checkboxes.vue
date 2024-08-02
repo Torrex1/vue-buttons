@@ -10,35 +10,35 @@
                 <label>
                     <input type="checkbox" id="cb1" checked>
                     <span class="customCheckbox"></span>
-                    Текст переключателя
+                    Текст переключателя (on)
                 </label>
             </li>
             <li>
                 <label>
                     <input type="checkbox" id="cb2">
                     <span class="customCheckbox"></span>
-                    Текст переключателя
+                    Текст переключателя (off)
                 </label>
             </li>
             <li>
                 <label>
                     <input type="checkbox" id="cb3" disabled>
                     <span class="customCheckbox"></span>
-                    Текст переключателя
+                    Текст переключателя (disabled)
                 </label>
             </li>
             <li>
                 <label>
                     <input type="checkbox" id="cb4" disabled checked>
                     <span class="customCheckbox"></span>
-                    Текст переключателя
+                    Текст переключателя (disabled on)
                 </label>
             </li>
             <li>
                 <label style="color: var(--error-border);">
                     <input type="checkbox" id="cb5" disabled>
                     <span class="customCheckbox"></span>
-                    Текст переключателя
+                    Текст переключателя (error)
                 </label>
             </li>
         </ul>
