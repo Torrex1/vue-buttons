@@ -77,6 +77,17 @@ input[type="checkbox"]:checked + .customCheckbox::before {
     background-repeat: no-repeat;
 }
 
+input[type="checkbox"]:not(:checked):hover + .customCheckbox::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url('../assets/img/Vector.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: .2;
+}
+
 input[type="checkbox"]:disabled + .customCheckbox {
     background-color: var(--disabled-bg);
     border: 1px solid var(--disabled-border);
