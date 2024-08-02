@@ -86,8 +86,8 @@ input[type="checkbox"]:not(:checked):not(:disabled):hover + .customCheckbox::bef
 input[type="checkbox"]:not(:checked):not(:disabled) + .customCheckbox:hover::before {
     content: '';
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     background-image: url('../assets/img/Vector.svg');
     background-position: center;
     background-repeat: no-repeat;
