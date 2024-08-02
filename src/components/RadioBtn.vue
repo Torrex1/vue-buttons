@@ -69,7 +69,7 @@ label {
   width: 20px;
   height: 20px;
   border: 1px solid var(--border-color);
-  background-color: #fff;
+  background-color: #F8F9FB;
   border-radius: 50%;
   cursor: pointer;
 }

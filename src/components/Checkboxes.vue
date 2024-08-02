@@ -1,9 +1,13 @@
+<script setup>
+    import {ref} from 'vue';
+</script>
+
 <template>
     <div class="checkboxes">
         <h1 style="text-align: center;">Checkboxes</h1>
         <ul class="checkboxesList">
             <li>
-                <input type="checkbox" id="cb1">
+                <input type="checkbox" id="cb1" checked>
                 <span class="customCheckbox"></span>
                 <label for="cb1">Текст переключателя</label>
             </li>
@@ -13,12 +17,12 @@
                 <label for="cb2">Текст переключателя</label>
             </li>
             <li>
-                <input type="checkbox" id="cb3">
+                <input type="checkbox" id="cb3" disabled>
                 <span class="customCheckbox"></span>
                 <label for="cb3">Текст переключателя</label>
             </li>
             <li>
-                <input type="checkbox" id="cb4">
+                <input type="checkbox" id="cb4" disabled checked>
                 <span class="customCheckbox"></span>
                 <label for="cb4">Текст переключателя</label>
             </li>
@@ -53,7 +57,7 @@
     width: 20px;
     height: 20px;
     border: 1px solid var(--border-color);
-    background-color: #fff;
+    background-color: #F0F5FB;
     cursor: pointer;
     border-radius: 5px;
 }
