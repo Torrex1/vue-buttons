@@ -27,9 +27,9 @@
                 <label for="cb4">Текст переключателя</label>
             </li>
             <li>
-                <input type="checkbox" id="cb5">
+                <input type="checkbox" id="cb5" disabled>
                 <span class="customCheckbox"></span>
-                <label for="cb5">Текст переключателя</label>
+                <label for="cb5" style="color: var(--error-border);">Текст переключателя</label>
             </li>
         </ul>
     </div>
@@ -106,6 +106,11 @@ input[type="checkbox"]:disabled:checked + .customCheckbox::before {
     background-image: url('../assets/img/VectorDisabled.svg');
     background-position: center;
     background-repeat: no-repeat;
+}
+
+#cb5 + .customCheckbox {
+    border: 1px solid var(--error-border);
+    background-color: var(--error-bg);
 }
 
 </style>
