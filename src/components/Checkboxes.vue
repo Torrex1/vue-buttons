@@ -52,6 +52,10 @@
     gap: 10px;
 }
 
+input[type="checkbox"] {
+    appearance: none;
+}
+
 .customCheckbox {
     display: inline-block;
     width: 20px;
