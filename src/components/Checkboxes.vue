@@ -88,6 +88,10 @@ input[type="checkbox"]:not(:checked):not(:disabled):hover + .customCheckbox::bef
     opacity: .2;
 }
 
+input[type="checkbox"]:focus + .customCheckbox {
+    box-shadow: 0px 0px 4px 2px #0066AF99;
+}
+
 input[type="checkbox"]:disabled + .customCheckbox {
     background-color: var(--disabled-bg);
     border: 1px solid var(--disabled-border);
