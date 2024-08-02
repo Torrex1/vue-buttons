@@ -1,9 +1,14 @@
 <script setup>
 import RadioBtn from './components/RadioBtn.vue';
+import Checkboxes from './components/Checkboxes.vue';
 </script>
 
 <template>
-    <RadioBtn />
+    <div style="display: grid; grid-template-columns: 1fr 1fr">
+        <RadioBtn />
+        <Checkboxes />
+    </div>
+    
 </template>
 
 <style scoped>
