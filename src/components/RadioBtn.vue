@@ -58,7 +58,7 @@ input[type="radio"] {
 
 label {
   cursor: pointer;
-  font-size: 18px;
+  font-size: 20px;
   display: flex;
   align-items: center;
   margin-left: 10px;
@@ -66,8 +66,8 @@ label {
 
 .customRadio {
   display: inline-block;
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   border: 1px solid var(--border-color);
   background-color: #F8F9FB;
   border-radius: 50%;
@@ -77,8 +77,8 @@ label {
 input[type="radio"]:checked + .customRadio::before {
   content: "";
   display: inline-block;
-  width: 10px;
-  height: 10px;
+  width: 15px;
+  height: 15px;
   background-color: var(--radio-bg);
   border-radius: 50%;
   margin: 5px;
@@ -87,8 +87,8 @@ input[type="radio"]:checked + .customRadio::before {
 input[type="radio"]:not(:checked):hover + .customRadio::before, .customRadio:hover::before{
   content: "";
   display: inline-block;
-  width: 10px;
-  height: 10px;
+  width: 15px;
+  height: 15px;
   border-radius: 50%;
   margin: 5px;
   background-color: #D5E3F0;
