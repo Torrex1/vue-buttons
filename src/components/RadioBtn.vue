@@ -4,33 +4,43 @@
 
     <ul class="radioButtonList">
       <li>
-        <input id="rb1" type="radio" checked>
-        <span class="customRadio"></span>
-        <label for="rb1">Текст переключателя</label>
+        <label>
+          <input type="radio" checked>
+          <span class="customRadio"></span>
+          Текст переключателя
+        </label>
       </li>
 
       <li>
-        <input id="rb2" type="radio">
-        <span class="customRadio"></span>
-        <label for="rb2">Текст переключателя</label>
+        <label>
+          <input type="radio">
+          <span class="customRadio"></span>
+          Текст переключателя
+        </label>
       </li>
 
       <li>
-        <input id="rb3" type="radio" disabled>
-        <span class="customRadio"></span>
-        <label for="rb3">Текст переключателя</label>
+        <label>
+          <input type="radio" disabled>
+          <span class="customRadio"></span>
+          Текст переключателя
+        </label>
       </li>
 
       <li>
-        <input id="rb4" type="radio" disabled checked>
-        <span class="customRadio"></span>
-        <label for="rb4">Текст переключателя</label>
+        <label>
+          <input type="radio" disabled checked>
+          <span class="customRadio"></span>
+          Текст переключателя
+        </label>
       </li>
 
       <li>
-        <input id="rb5" type="radio" disabled>
-        <span class="customRadio"></span>
-        <label for="rb5" style="color: var(--error-border);">Текст переключателя</label>
+        <label style="color: var(--error-border);">
+          <input id="rb5" type="radio" disabled>
+          <span class="customRadio"></span>
+          Текст переключателя
+        </label>
       </li>
     </ul>
   
@@ -61,7 +71,7 @@ label {
   font-size: 20px;
   display: flex;
   align-items: center;
-  margin-left: 10px;
+  gap: 10px;
 }
 
 .customRadio {
