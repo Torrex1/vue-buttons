@@ -77,7 +77,7 @@ input[type="checkbox"]:checked + .customCheckbox::before {
     background-repeat: no-repeat;
 }
 
-input[type="checkbox"]:not(:checked):hover + .customCheckbox::before {
+input[type="checkbox"]:not(:checked):not(:disabled):hover + .customCheckbox::before {
     content: '';
     display: inline-block;
     width: 20px;
