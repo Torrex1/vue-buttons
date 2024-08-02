@@ -84,7 +84,7 @@ input[type="radio"]:checked + .customRadio::before {
   margin: 5px;
 }
 
-input[type="radio"]:hover + .customRadio::before, .customRadio:hover::before{
+input[type="radio"]:not(:checked):hover + .customRadio::before, .customRadio:hover::before{
   content: "";
   display: inline-block;
   width: 10px;
