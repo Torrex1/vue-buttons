@@ -58,8 +58,8 @@ input[type="checkbox"] {
 
 .customCheckbox {
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     border: 1px solid var(--border-color);
     background-color: #F0F5FB;
     cursor: pointer;
@@ -69,13 +69,14 @@ input[type="checkbox"] {
 label {
     cursor: pointer;
     margin-left: 10px;
+    font-size: 20px;
 }
 
 input[type="checkbox"]:checked + .customCheckbox::before {
     content: '';
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     background-image: url('../assets/img/Vector.svg');
     background-position: center;
     background-repeat: no-repeat;
@@ -106,8 +107,8 @@ input[type="checkbox"]:disabled + .customCheckbox {
 input[type="checkbox"]:disabled:checked + .customCheckbox::before {
     content: '';
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     background-image: url('../assets/img/VectorDisabled.svg');
     background-position: center;
     background-repeat: no-repeat;
