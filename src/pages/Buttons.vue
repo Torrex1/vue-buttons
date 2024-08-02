@@ -7,6 +7,24 @@ import Checkboxes from '../components/Checkboxes.vue';
 <template>
     <div style="display: grid; grid-template-columns: 1fr 1fr">
         <RadioBtn />
-        <Checkboxes />     
+        <Checkboxes />    
     </div>
+    
+    <RouterLink to="/">
+        <div class="test"></div>
+    </RouterLink>
 </template>
+
+<style scoped>
+.test {
+    padding: 25px;
+    background-image: url('../assets/img/arrow.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    cursor: pointer;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+}
+</style>
