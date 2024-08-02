@@ -7,29 +7,39 @@
         <h1 style="text-align: center;">Checkboxes</h1>
         <ul class="checkboxesList">
             <li>
-                <input type="checkbox" id="cb1" checked>
-                <span class="customCheckbox"></span>
-                <label for="cb1">Текст переключателя</label>
+                <label>
+                    <input type="checkbox" id="cb1" checked>
+                    <span class="customCheckbox"></span>
+                    Текст переключателя
+                </label>
             </li>
             <li>
-                <input type="checkbox" id="cb2">
-                <span class="customCheckbox"></span>
-                <label for="cb2">Текст переключателя</label>
+                <label>
+                    <input type="checkbox" id="cb2">
+                    <span class="customCheckbox"></span>
+                    Текст переключателя
+                </label>
             </li>
             <li>
-                <input type="checkbox" id="cb3" disabled>
-                <span class="customCheckbox"></span>
-                <label for="cb3">Текст переключателя</label>
+                <label>
+                    <input type="checkbox" id="cb3" disabled>
+                    <span class="customCheckbox"></span>
+                    Текст переключателя
+                </label>
             </li>
             <li>
-                <input type="checkbox" id="cb4" disabled checked>
-                <span class="customCheckbox"></span>
-                <label for="cb4">Текст переключателя</label>
+                <label>
+                    <input type="checkbox" id="cb4" disabled checked>
+                    <span class="customCheckbox"></span>
+                    Текст переключателя
+                </label>
             </li>
             <li>
-                <input type="checkbox" id="cb5" disabled>
-                <span class="customCheckbox"></span>
-                <label for="cb5" style="color: var(--error-border);">Текст переключателя</label>
+                <label style="color: var(--error-border);">
+                    <input type="checkbox" id="cb5" disabled>
+                    <span class="customCheckbox"></span>
+                    Текст переключателя
+                </label>
             </li>
         </ul>
     </div>
@@ -68,8 +78,10 @@ input[type="checkbox"] {
 
 label {
     cursor: pointer;
-    margin-left: 10px;
     font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 input[type="checkbox"]:checked + .customCheckbox::before {
