@@ -5,7 +5,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import App from './App.vue'
 
 import Home from './pages/Home.vue'
-import Second from './pages/Second.vue'
+import Upload from './pages/Upload.vue'
 import Buttons from './pages/Buttons.vue'
 
 const app = createApp(App)
@@ -14,7 +14,7 @@ const router = createRouter({
     history: createWebHistory(),
     routes: [
         {path: '/', name: 'Home', component: Home},
-        {path: '/second', name: 'Second', component: Second},
+        {path: '/upload-file', name: 'Upload', component: Upload},
         {path: '/buttons', name: 'Buttons', component: Buttons},
     ]
 })
