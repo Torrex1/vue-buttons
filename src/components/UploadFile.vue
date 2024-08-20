@@ -29,6 +29,10 @@
     font-size: 16px;
 }
 
+.upload-file-wrapper:hover {
+    background-color: #F0F5FB;
+}
+
 .upload-file-box {
     width: 592px;
     height: 192px;
