@@ -11,12 +11,12 @@ import Checkboxes from '../components/Checkboxes.vue';
     </div>
     
     <RouterLink to="/">
-        <div class="test"></div>
+        <div class="backward"></div>
     </RouterLink>
 </template>
 
 <style scoped>
-.test {
+.backward {
     padding: 25px;
     background-image: url('../assets/img/arrow.png');
     background-repeat: no-repeat;
