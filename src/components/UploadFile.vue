@@ -1,6 +1,6 @@
 <template>
     <label>
-        <input type="file">
+        <input type="file" accept=".png, .jpg, .pdf">
 
         <div class="upload-file-wrapper">
             <div class="upload-file-box">
