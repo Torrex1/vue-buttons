@@ -5,7 +5,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import App from './App.vue'
 
 import Home from './pages/Home.vue'
-import Upload from './pages/Upload.vue'
+import Upload from './pages/UploadPage.vue'
 import Buttons from './pages/Buttons.vue'
 
 const app = createApp(App)
