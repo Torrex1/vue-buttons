@@ -1,3 +1,9 @@
+<script setup>
+    const props = defineProps({
+        fileName: String
+    })
+</script>
+
 <template>
     <div class="loaderWrapper">
 
@@ -6,7 +12,9 @@
                 <img src="../assets/img/loaderIcon/file.png" alt="">
             </div>
 
-            <span>Название файла.pdf</span>
+            <span>{{ props.fileName }}</span>
+
+            <div class="loadingLine"></div>
         </div>
         
         <div class="rigthSideBar">
