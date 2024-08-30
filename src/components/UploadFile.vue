@@ -1,5 +1,6 @@
 <script setup>
     import { ref } from 'vue';
+    import Loader from './Loader.vue';
 
     const hasError = ref(false);
 
@@ -32,6 +33,7 @@
                 <span>Перетащите файлы сюда или кликните на область</span>
                 <span>Принимаются файлы в формате PDF, JPG, PNG. Пожалуйста, убедитесь, что текст на предоставленных копиях разборчив.</span>
             </div>
+            <Loader />
         </div>
         
     </label>
