@@ -21,15 +21,18 @@
     }
 
     const fileName = ref('');
-    const getFileName = () => {
-        fileName.value = event.target.files[0].name;
+    const maxFileSize = ref(0);
+    const getFileProperties = () => {
+        fileName.value = event.target.files[0].name;    
+        
+        maxFileSize.value = Math.round(event.target.files[0].size / 1024);
     }
 
 </script>
 
 <template>
     <label>
-        <input @change="onFileChange(), getFileName()" type="file" accept=".png, .jpg, .pdf">
+        <input @change="onFileChange(), getFileProperties()" type="file" accept=".png, .jpg, .pdf">
 
         <div :class="{uploadFileWrapper: !hasError, wrapperError: hasError }">
             <div class="upload-file-box">
@@ -38,7 +41,10 @@
                 <span>Перетащите файлы сюда или кликните на область</span>
                 <span>Принимаются файлы в формате PDF, JPG, PNG. Пожалуйста, убедитесь, что текст на предоставленных копиях разборчив.</span>
             </div>
-            <Loader :file-name="fileName" />
+            <Loader 
+            :file-name="fileName" 
+            :max-file-size="maxFileSize"
+            />
         </div>
         
     </label>
