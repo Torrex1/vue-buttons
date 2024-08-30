@@ -12,7 +12,9 @@
                 <img src="../assets/img/loaderIcon/file.png" alt="">
             </div>
 
-            <span>{{ props.fileName }}</span>
+            <span v-if="fileName">{{ props.fileName }}</span>
+
+            <span v-else>Выберите файл для загрузки</span>
 
             <div class="loadingLine"></div>
         </div>
