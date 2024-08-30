@@ -20,11 +20,16 @@
         }
     }
 
+    const fileName = ref('');
+    const getFileName = () => {
+        fileName.value = event.target.files[0].name;
+    }
+
 </script>
 
 <template>
     <label>
-        <input @change="onFileChange" type="file" accept=".png, .jpg, .pdf">
+        <input @change="onFileChange(), getFileName()" type="file" accept=".png, .jpg, .pdf">
 
         <div :class="{uploadFileWrapper: !hasError, wrapperError: hasError }">
             <div class="upload-file-box">
@@ -33,7 +38,7 @@
                 <span>Перетащите файлы сюда или кликните на область</span>
                 <span>Принимаются файлы в формате PDF, JPG, PNG. Пожалуйста, убедитесь, что текст на предоставленных копиях разборчив.</span>
             </div>
-            <Loader />
+            <Loader :file-name="fileName" />
         </div>
         
     </label>
