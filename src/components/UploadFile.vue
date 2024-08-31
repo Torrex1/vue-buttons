@@ -41,14 +41,13 @@
                 <span>Перетащите файлы сюда или кликните на область</span>
                 <span>Принимаются файлы в формате PDF, JPG, PNG. Пожалуйста, убедитесь, что текст на предоставленных копиях разборчив.</span>
             </div>
-        </div>
-
-        <Loader 
-            :file-name="fileName" 
-            :max-file-size="maxFileSize"
-        />
-        
+        </div> 
     </label>
+
+    <Loader 
+        :file-name="fileName" 
+        :max-file-size="maxFileSize"
+    />
 </template>
 
 <style scoped>

@@ -20,16 +20,15 @@
         
             <div class="rigthSideBar">
                 <span>0 из {{ props.maxFileSize }} КБ (МБ)</span>
+                <div class="buttons">
+                    <img src="../assets/img/loaderIcon/pause.png" alt="">
+                </div>
             </div>
             
         </div>
 
         <div class="progressBar">
             <progress></progress>
-            
-            <div class="buttons">
-                <img src="../assets/img/loaderIcon/pause.png" alt="">
-            </div>
         </div>
         
     </div>
