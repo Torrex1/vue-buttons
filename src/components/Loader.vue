@@ -8,20 +8,25 @@
 <template>
     <div class="loaderWrapper">
 
-        <div class="leftSideBar">
-            <div class="iconBox">
-                <img src="../assets/img/loaderIcon/file.png" alt="">
+        <div class="test">
+            <div class="leftSideBar">
+                <div class="iconBox">
+                    <img src="../assets/img/loaderIcon/file.png" alt="">
+                </div>
+
+                <span v-if="fileName">{{ props.fileName }}</span>
+                <span v-else>Выберите файл для загрузки</span>
             </div>
-
-            <span v-if="fileName">{{ props.fileName }}</span>
-
-            <span v-else>Выберите файл для загрузки</span>
-
-            <div class="loadingLine"></div>
-        </div>
         
-        <div class="rigthSideBar">
-            <span>0 из {{ props.maxFileSize }} КБ (МБ)</span>
+            <div class="rigthSideBar">
+                <span>0 из {{ props.maxFileSize }} КБ (МБ)</span>
+            </div>
+            
+        </div>
+
+        <div class="progressBar">
+            <progress></progress>
+            
             <div class="buttons">
                 <img src="../assets/img/loaderIcon/pause.png" alt="">
             </div>
@@ -31,13 +36,23 @@
 </template>
 
 <style scoped>
+.progressBar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.test {
+    display: flex;
+    justify-content: space-between;
+}
+
 .loaderWrapper {
     width: 100%;
     height: 82px;
     border: 1px solid red;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
     padding: 16px 20px 16px 16px;
     gap: 16px;
 }
@@ -60,17 +75,21 @@
 .buttons img {
     width: 20px;
     height: 20px;
+    display: flex;
+    align-items: center;
 }
 
 .leftSideBar {
     display: flex;
     align-items: center;
     gap: 10px;
+    border: 1px solid blue;
 }
 
 .rigthSideBar {
     display: flex;
     align-items: center;
     gap: 10px;
+    border: 1px solid rgb(255, 0, 179);
 }
 </style>
