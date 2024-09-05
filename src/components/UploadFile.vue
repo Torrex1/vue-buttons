@@ -1,9 +1,9 @@
 <script setup>
     import { ref } from 'vue';
     import Loader from './Loader.vue';
+    import UploadContent from './UploadContent.vue';
 
-    const hasError = ref(false);
-
+    
     const onFileChange = () => {
         const file = event.target.files[0];
 
@@ -11,6 +11,7 @@
         checkingFileType(file)
     }
 
+    const hasError = ref(false);
     const checkingFileType = (file) => {
         if (file.type === 'image/jpeg' || file.type === 'image/png' 
             || file.type === 'application/pdf') {
@@ -35,12 +36,9 @@
         <input @change="onFileChange(), getFileProperties()" type="file" accept=".png, .jpg, .pdf">
 
         <div :class="{uploadFileWrapper: !hasError, wrapperError: hasError }">
-            <div class="upload-file-box">
-                <img v-if="!hasError" style="width: 100px; height: 100px;" src="../assets/img/upload-file-icon.png" alt="uploadIcon">
-                <img v-else style="width: 100px; height: 100px;" src="../assets/img/upload-file-error.png" alt="uploadIcon">
-                <span>Перетащите файлы сюда или кликните на область</span>
-                <span>Принимаются файлы в формате PDF, JPG, PNG. Пожалуйста, убедитесь, что текст на предоставленных копиях разборчив.</span>
-            </div>
+            <UploadContent
+                :hasError ="hasError"
+            />
         </div> 
     </label>
 
@@ -68,17 +66,6 @@
 
 .uploadFileWrapper:hover {
     background-color: #F0F5FB;
-}
-
-.upload-file-box {
-    width: 592px;
-    height: 192px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 10px;
 }
 
 .upload-file-wrapper span:nth-child(2) {
