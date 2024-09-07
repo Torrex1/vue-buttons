@@ -3,12 +3,15 @@
     import Loader from './Loader.vue';
     import UploadContent from './UploadContent.vue';
 
-    
+    const isFileUploaded = ref(false);
     const onFileChange = () => {
         const file = event.target.files[0];
 
         // files.value = [...files.value, file];
         checkingFileType(file)
+
+        isFileUploaded.value = true;
+
     }
 
     const hasError = ref(false);
@@ -33,19 +36,22 @@
 
 <template>
     <label>
-        <input @change="onFileChange(), getFileProperties()" type="file" accept=".png, .jpg, .pdf">
+        <input :disabled="isFileUploaded" @change="onFileChange(), getFileProperties()" type="file" accept=".png, .jpg, .pdf">
 
         <div :class="{uploadFileWrapper: !hasError, wrapperError: hasError }">
-            <UploadContent
+
+            <UploadContent v-if ="!isFileUploaded"
                 :hasError ="hasError"
+            />
+
+            <Loader v-else
+                :file-name="fileName" 
+                :max-file-size="maxFileSize"
             />
         </div> 
     </label>
 
-    <Loader 
-        :file-name="fileName" 
-        :max-file-size="maxFileSize"
-    />
+    
 </template>
 
 <style scoped>
@@ -77,7 +83,7 @@ label {cursor:pointer;}
 
 input {
     position: absolute;
-    visibility: hidden;
+    /* visibility: hidden; */
 }
 
 .wrapperError {
