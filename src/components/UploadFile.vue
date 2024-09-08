@@ -48,7 +48,8 @@
                 :file-name="fileName" 
                 :max-file-size="maxFileSize"
             />
-        </div> 
+            
+        </div>     
     </label>
 
     
@@ -70,7 +71,7 @@
     font-size: 16px;
 }
 
-.uploadFileWrapper:hover {
+input[type="file"]:not(:disabled) + .uploadFileWrapper:hover {
     background-color: #F0F5FB;
 }
 

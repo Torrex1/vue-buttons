@@ -8,7 +8,7 @@
 <template>
     <div class="loaderWrapper">
 
-        <div class="test">
+        <div class="wrapper">
             <div class="leftSideBar">
                 <div class="iconBox">
                     <img src="../assets/img/loaderIcon/file.png" alt="">
@@ -36,12 +36,15 @@
 
 <style scoped>
 .progressBar {
-    width: 100%;
     display: flex;
     justify-content: space-between;
 }
 
-.test {
+progress {
+    width: 100%;
+}
+
+.wrapper {
     display: flex;
     justify-content: space-between;
 }
@@ -49,7 +52,7 @@
 .loaderWrapper {
     width: 100%;
     height: 82px;
-    border: 1px solid red;
+    border: 1px solid #D5E3F0;
     display: flex;
     flex-direction: column;
     padding: 16px 20px 16px 16px;
@@ -83,13 +86,11 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    border: 1px solid blue;
 }
 
 .rigthSideBar {
     display: flex;
     align-items: center;
     gap: 10px;
-    border: 1px solid rgb(255, 0, 179);
 }
 </style>
