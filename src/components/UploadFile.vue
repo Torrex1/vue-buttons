@@ -9,9 +9,6 @@
 
         // files.value = [...files.value, file];
         checkingFileType(file)
-
-        isFileUploaded.value = true;
-
     }
 
     const hasError = ref(false);
@@ -19,6 +16,8 @@
         if (file.type === 'image/jpeg' || file.type === 'image/png' 
             || file.type === 'application/pdf') {
                 hasError.value = false;
+                // переменная, привязанная к появлению загружчика
+                isFileUploaded.value = true;
         } else {
             hasError.value = true;
         }
