@@ -14,7 +14,7 @@
 
         uploadFile(file);
     }
-
+    
     const uploadFile = (file) => {
             const formData = new FormData();
             formData.append('file', file);
@@ -24,13 +24,19 @@
             
             xhr.upload.onprogress = () => {
                 loadedHandler();
+                progressHandler();
             }
             xhr.send(formData);
     }
 
-    const loadedSize = ref(0);
+    const loadedSize = ref(0); 
     const loadedHandler = () => {
-        loadedSize.value = (Math.round(event.loaded / 1024));
+        loadedSize.value = (Math.round(event.loaded / 1024)); 
+    }
+
+    const progress = ref(0);
+    const progressHandler = () => {
+        progress.value = Math.round(event.loaded / event.total * 100);
     }
 
     const hasError = ref(false);
@@ -68,6 +74,7 @@
                 :file-name="fileName" 
                 :loaded-size="loadedSize"
                 :max-file-size="maxFileSize"
+                :progress="progress"
             />
             
         </div>     
