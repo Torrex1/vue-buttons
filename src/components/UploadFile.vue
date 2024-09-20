@@ -3,6 +3,8 @@
     import Loader from './Loader.vue';
     import UploadContent from './UploadContent.vue';
 
+    const url = '';
+
     const isFileUploaded = ref(false);
     const onFileChange = () => {
         const file = event.target.files[0];
@@ -31,11 +33,31 @@
         maxFileSize.value = Math.round(event.target.files[0].size / 1024);
     }
 
+
+    const loadedSize = ref(0);
+    const uploadFile = () => {
+            const formData = new FormData();
+            formData.append('file', event.target.files[0]);
+
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', url);
+            
+            xhr.upload.onprogress = (event) => {
+                loadedHandler();
+            }
+            xhr.send(formData);
+    }
+
+    const loadedHandler = () => {
+        loadedSize.value = (Math.round(event.loaded / 1024));
+    }
+
+    
 </script>
 
 <template>
     <label>
-        <input :disabled="isFileUploaded" @change="onFileChange(), getFileProperties()" type="file" accept=".png, .jpg, .pdf">
+        <input :disabled="isFileUploaded" @change="onFileChange(), getFileProperties(), uploadFile()" type="file" accept=".png, .jpg, .pdf">
 
         <div :class="{uploadFileWrapper: !hasError, wrapperError: hasError }">
 
@@ -45,6 +67,7 @@
 
             <Loader v-else
                 :file-name="fileName" 
+                :loaded-size="loadedSize"
                 :max-file-size="maxFileSize"
             />
             
