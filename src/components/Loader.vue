@@ -1,7 +1,8 @@
 <script setup>
     const props = defineProps({
         fileName: String,
-        maxFileSize: Number
+        loadedSize: Number,
+        maxFileSize: Number,
     })
 </script>
 
@@ -19,8 +20,8 @@
             </div>
         
             <div class="rigthSideBar">
-                <span>0 из {{ props.maxFileSize }} КБ (МБ)</span>
-                <div class="buttons">
+                <span>{{ loadedSize }} из {{ props.maxFileSize }} КБ (МБ)</span>
+                <div class="pauseButton">
                     <img src="../assets/img/loaderIcon/pause.png" alt="">
                 </div>
             </div>
@@ -74,7 +75,7 @@ progress {
     height: 24px;
 }
 
-.buttons img {
+.pauseButton img {
     width: 20px;
     height: 20px;
     display: flex;
