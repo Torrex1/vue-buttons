@@ -3,6 +3,7 @@
         fileName: String,
         loadedSize: Number,
         maxFileSize: Number,
+        progress: Number
     })
 </script>
 
@@ -29,7 +30,10 @@
         </div>
 
         <div class="progressBar">
-            <progress></progress>
+            <progress 
+                max="100" :value="props.progress">
+            </progress>
+            
         </div>
         
     </div>
@@ -38,11 +42,12 @@
 <style scoped>
 .progressBar {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 progress {
     width: 100%;
+    height: 10px;
 }
 
 .wrapper {
