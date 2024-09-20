@@ -10,7 +10,27 @@
         const file = event.target.files[0];
 
         // files.value = [...files.value, file];
-        checkingFileType(file)
+        checkingFileType(file);
+
+        uploadFile(file);
+    }
+
+    const uploadFile = (file) => {
+            const formData = new FormData();
+            formData.append('file', file);
+
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', url);
+            
+            xhr.upload.onprogress = () => {
+                loadedHandler();
+            }
+            xhr.send(formData);
+    }
+
+    const loadedSize = ref(0);
+    const loadedHandler = () => {
+        loadedSize.value = (Math.round(event.loaded / 1024));
     }
 
     const hasError = ref(false);
@@ -32,32 +52,11 @@
         
         maxFileSize.value = Math.round(event.target.files[0].size / 1024);
     }
-
-
-    const loadedSize = ref(0);
-    const uploadFile = () => {
-            const formData = new FormData();
-            formData.append('file', event.target.files[0]);
-
-            const xhr = new XMLHttpRequest();
-            xhr.open('POST', url);
-            
-            xhr.upload.onprogress = (event) => {
-                loadedHandler();
-            }
-            xhr.send(formData);
-    }
-
-    const loadedHandler = () => {
-        loadedSize.value = (Math.round(event.loaded / 1024));
-    }
-
-    
 </script>
 
 <template>
     <label>
-        <input :disabled="isFileUploaded" @change="onFileChange(), getFileProperties(), uploadFile()" type="file" accept=".png, .jpg, .pdf">
+        <input :disabled="isFileUploaded" @change="onFileChange(), getFileProperties()" type="file" accept=".png, .jpg, .pdf">
 
         <div :class="{uploadFileWrapper: !hasError, wrapperError: hasError }">
 
