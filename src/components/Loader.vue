@@ -3,7 +3,8 @@
         fileName: String,
         loadedSize: Number,
         maxFileSize: Number,
-        progress: Number
+        progress: Number,
+        isFileComplete: Boolean
     })
 </script>
 
@@ -13,7 +14,8 @@
         <div class="wrapper">
             <div class="leftSideBar">
                 <div class="iconBox">
-                    <img src="../assets/img/loaderIcon/file.png" alt="">
+                    <img v-if="!isFileComplete" src="../assets/img/loaderIcon/file.png" alt="">
+                    <img v-else src="../assets/img/loaderIcon/tick.png" alt="">
                 </div>
 
                 <span v-if="fileName">{{ props.fileName }}</span>
@@ -21,7 +23,7 @@
             </div>
         
             <div class="rigthSideBar">
-                <span>{{ loadedSize }} из {{ props.maxFileSize }} КБ (МБ)</span>
+                <span>{{ props.loadedSize }} из {{ props.maxFileSize }} КБ (МБ)</span>
                 <div class="pauseButton">
                     <img src="../assets/img/loaderIcon/pause.png" alt="">
                 </div>
