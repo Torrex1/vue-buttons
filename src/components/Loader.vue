@@ -4,7 +4,7 @@
         loadedSize: Number,
         maxFileSize: Number,
         progress: Number,
-        isFileComplete: Boolean
+        listStatus: String,
     })
 </script>
 
@@ -14,16 +14,14 @@
         <div class="wrapper">
             <div class="leftSideBar">
                 <div class="iconBox">
-                    <img v-if="!isFileComplete" src="../assets/img/loaderIcon/file.png" alt="">
-                    <img v-else src="../assets/img/loaderIcon/tick.png" alt="">
+                    <img :src="listStatus" alt="">
                 </div>
 
-                <span v-if="fileName">{{ props.fileName }}</span>
-                <span v-else>Выберите файл для загрузки</span>
+                <span>{{ fileName }}</span>
             </div>
         
             <div class="rigthSideBar">
-                <span>{{ props.loadedSize }} из {{ props.maxFileSize }} КБ (МБ)</span>
+                <span>{{ loadedSize }} из {{ maxFileSize }} КБ (МБ)</span>
                 <div class="pauseButton">
                     <img src="../assets/img/loaderIcon/pause.png" alt="">
                 </div>
@@ -33,7 +31,7 @@
 
         <div class="progressBar">
             <progress 
-                max="100" :value="props.progress">
+                max="100" :value="progress">
             </progress>
             
         </div>
@@ -60,7 +58,7 @@ progress {
 .loaderWrapper {
     width: 100%;
     height: 82px;
-    border: 1px solid #D5E3F0;
+    /* border: 1px solid #D5E3F0; */
     display: flex;
     flex-direction: column;
     padding: 16px 20px 16px 16px;
