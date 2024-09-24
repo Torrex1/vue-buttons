@@ -4,18 +4,24 @@
     import UploadContent from './UploadContent.vue';
 
     const url = '';
-
+    // https://a580014e17c74889.mokky.dev/uploads
+    
     const isFileUploaded = ref(false);
     const onFileChange = () => {
         const file = event.target.files[0];
 
-        // files.value = [...files.value, file];
         checkingFileType(file);
-
         uploadFile(file);
     }
-    
-    const isFileComplete = ref(false);
+
+    // словарь с ссылками на картинки в зависимости от статуса сервера
+    const serverResponse = {
+        default: 'src/assets/img/loaderIcon/file.png',
+        success: 'src/assets/img/loaderIcon/tick.png',
+        serverError: 'src/assets/img/loaderIcon/alert.png',   
+    }
+
+    const listStatus = ref('');
     const uploadFile = (file) => {
             const formData = new FormData();
             formData.append('file', file);
@@ -28,11 +34,16 @@
                 progressHandler();
             }
 
-            xhr.onload = () => {
-                isFileComplete.value = true;
-            }
+            listStatus.value = serverResponse.default;
 
-            xhr.send(formData);
+            xhr.onload = () => {
+                if (xhr.status >= 200 && xhr.status < 300) {        
+                    listStatus.value = serverResponse.success;
+                } else {
+                    listStatus.value = serverResponse.serverError;
+                }
+            }
+            xhr.send(formData);         
     }
 
     const loadedSize = ref(0); 
@@ -80,9 +91,8 @@
                 :loaded-size="loadedSize"
                 :max-file-size="maxFileSize"
                 :progress="progress"
-                :is-file-complete="isFileComplete"
+                :list-status="listStatus"
             />
-            
         </div>     
     </label>
 
