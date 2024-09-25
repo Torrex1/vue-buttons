@@ -3,8 +3,8 @@
     import Loader from './Loader.vue';
     import UploadContent from './UploadContent.vue';
 
-    const url = '';
-    // https://a580014e17c74889.mokky.dev/uploads
+    const url = 'https://a580014e17c74889.mokky.dev/uploads';
+    
     
     const isFileUploaded = ref(false);
     const onFileChange = () => {
@@ -18,10 +18,19 @@
     const serverResponse = {
         default: 'src/assets/img/loaderIcon/file.png',
         success: 'src/assets/img/loaderIcon/tick.png',
-        serverError: 'src/assets/img/loaderIcon/alert.png',   
+        serverError: 'src/assets/img/loaderIcon/alert.png',  
+        
+        defaultBorderStyle: 'border: 1px solid #D5E3F0;',
+        errorBorderStyle: 'border: 1px solid var(--alert-border);',
+
+        defaultIconBox: 'background-color: #E3F2F9;',
+        successIconBox: 'background-color: #E2F5F3;',
+        errorIconBox: 'background-color: var(--alert-bg);',
     }
 
     const listStatus = ref('');
+    const statusBorderStyle = ref('');
+    const iconBoxStyle = ref('');
     const uploadFile = (file) => {
             const formData = new FormData();
             formData.append('file', file);
@@ -35,12 +44,17 @@
             }
 
             listStatus.value = serverResponse.default;
+            statusBorderStyle.value = serverResponse.defaultBorderStyle;
+            iconBoxStyle.value = serverResponse.defaultIconBox;
 
             xhr.onload = () => {
                 if (xhr.status >= 200 && xhr.status < 300) {        
                     listStatus.value = serverResponse.success;
+                    iconBoxStyle.value = serverResponse.successIconBox;
                 } else {
                     listStatus.value = serverResponse.serverError;
+                    statusBorderStyle.value = serverResponse.errorBorderStyle;
+                    iconBoxStyle.value = serverResponse.errorIconBox;
                 }
             }
             xhr.send(formData);         
@@ -92,6 +106,8 @@
                 :max-file-size="maxFileSize"
                 :progress="progress"
                 :list-status="listStatus"
+                :statusBorderStyle="statusBorderStyle"
+                :iconBoxStyle="iconBoxStyle"
             />
         </div>     
     </label>
