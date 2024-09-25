@@ -5,18 +5,20 @@
         maxFileSize: Number,
         progress: Number,
         listStatus: String,
+        statusBorderStyle: String,
+        iconBoxStyle: String
     })
 </script>
 
 <template>
-    <div class="loaderWrapper">
+    <div class="loaderWrapper" :style="statusBorderStyle">
 
         <div class="wrapper">
             <div class="leftSideBar">
-                <div class="iconBox">
+                <div class="iconBox" :style="iconBoxStyle">
                     <img :src="listStatus" alt="">
                 </div>
-
+                
                 <span>{{ fileName }}</span>
             </div>
         
@@ -58,17 +60,18 @@ progress {
 .loaderWrapper {
     width: 100%;
     height: 82px;
-    /* border: 1px solid #D5E3F0; */
+    /*border: 1px solid #D5E3F0; */
     display: flex;
     flex-direction: column;
     padding: 16px 20px 16px 16px;
     gap: 16px;
+    border-radius: 8px;
 }
 
 .iconBox {
     width: 44px;
     height: 44px;
-    background-color: #E3F2F9;
+    /* background-color: #E3F2F9; */
     border-radius: 50%;
     display: flex;
     align-items: center;
