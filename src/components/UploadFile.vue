@@ -28,6 +28,8 @@
         errorIconBox: 'background-color: var(--alert-bg);',
     }
 
+    const toHideProgress = ref(false);
+
     const listStatus = ref('');
     const statusBorderStyle = ref('');
     const iconBoxStyle = ref('');
@@ -48,6 +50,7 @@
             iconBoxStyle.value = serverResponse.defaultIconBox;
 
             xhr.onload = () => {
+                toHideProgress.value = true;
                 if (xhr.status >= 200 && xhr.status < 300) {        
                     listStatus.value = serverResponse.success;
                     iconBoxStyle.value = serverResponse.successIconBox;
@@ -108,6 +111,7 @@
                 :list-status="listStatus"
                 :statusBorderStyle="statusBorderStyle"
                 :iconBoxStyle="iconBoxStyle"
+                :toHideProgress="toHideProgress"
             />
         </div>     
     </label>
