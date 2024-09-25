@@ -6,7 +6,8 @@
         progress: Number,
         listStatus: String,
         statusBorderStyle: String,
-        iconBoxStyle: String
+        iconBoxStyle: String,
+        toHideProgress: Boolean
     })
 </script>
 
@@ -31,11 +32,10 @@
             
         </div>
 
-        <div class="progressBar">
+        <div class="progressBar" :style="{display: toHideProgress ? 'none' : 'flex'}">
             <progress 
-                max="100" :value="progress">
+                max="100" :value="progress">  
             </progress>
-            
         </div>
         
     </div>
@@ -44,7 +44,6 @@
 <style scoped>
 .progressBar {
     display: flex;
-    justify-content: center;
 }
 
 progress {
@@ -60,9 +59,9 @@ progress {
 .loaderWrapper {
     width: 100%;
     height: 82px;
-    /*border: 1px solid #D5E3F0; */
     display: flex;
     flex-direction: column;
+    justify-content: center;
     padding: 16px 20px 16px 16px;
     gap: 16px;
     border-radius: 8px;
