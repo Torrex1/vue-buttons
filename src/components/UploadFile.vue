@@ -5,8 +5,6 @@
 
     const url = 'https://a580014e17c74889.mokky.dev/uploads';
     
-    
-    const isFileUploaded = ref(false);
     const onFileChange = () => {
         const file = event.target.files[0];
 
@@ -28,7 +26,7 @@
         errorIconBox: 'background-color: var(--alert-bg);',
     }
 
-    const toHideProgress = ref(false);
+    const toUploadComplete = ref(false);
 
     const listStatus = ref('');
     const statusBorderStyle = ref('');
@@ -50,7 +48,7 @@
             iconBoxStyle.value = serverResponse.defaultIconBox;
 
             xhr.onload = () => {
-                toHideProgress.value = true;
+                toUploadComplete.value = true;
                 if (xhr.status >= 200 && xhr.status < 300) {        
                     listStatus.value = serverResponse.success;
                     iconBoxStyle.value = serverResponse.successIconBox;
@@ -74,6 +72,7 @@
     }
 
     const hasError = ref(false);
+    const isFileUploaded = ref(false);
     const checkingFileType = (file) => {
         if (file.type === 'image/jpeg' || file.type === 'image/png' 
             || file.type === 'application/pdf') {
@@ -111,7 +110,7 @@
                 :list-status="listStatus"
                 :statusBorderStyle="statusBorderStyle"
                 :iconBoxStyle="iconBoxStyle"
-                :toHideProgress="toHideProgress"
+                :toUploadComplete="toUploadComplete"
             />
         </div>     
     </label>

@@ -7,7 +7,7 @@
         listStatus: String,
         statusBorderStyle: String,
         iconBoxStyle: String,
-        toHideProgress: Boolean
+        toUploadComplete: Boolean
     })
 </script>
 
@@ -24,7 +24,8 @@
             </div>
         
             <div class="rigthSideBar">
-                <span>{{ loadedSize }} из {{ maxFileSize }} КБ (МБ)</span>
+                <span v-if="!toUploadComplete">{{ loadedSize }} из {{ maxFileSize }} КБ (МБ)</span>
+                <span v-else>{{ maxFileSize }} КБ</span>
                 <div class="pauseButton">
                     <img src="../assets/img/loaderIcon/pause.png" alt="">
                 </div>
@@ -32,7 +33,7 @@
             
         </div>
 
-        <div class="progressBar" :style="{display: toHideProgress ? 'none' : 'flex'}">
+        <div class="progressBar" :style="{display: toUploadComplete ? 'none' : ''}">
             <progress 
                 max="100" :value="progress">  
             </progress>
