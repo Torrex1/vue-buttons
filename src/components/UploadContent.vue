@@ -6,10 +6,10 @@
 
 <template>
     <div class="upload-file-box">
-        <img v-if="!props.hasError" style="width: 100px; height: 100px;" src="../assets/img/upload-file-icon.png" alt="uploadIcon">
+        <img v-if="!hasError" style="width: 100px; height: 100px;" src="../assets/img/upload-file-icon.png" alt="uploadIcon">
         <img v-else style="width: 100px; height: 100px;" src="../assets/img/upload-file-error.png" alt="uploadIcon">
         <span>Перетащите файлы сюда или кликните на область</span>
-        <span>Принимаются файлы в формате PDF, JPG, PNG. Пожалуйста, убедитесь, что текст на предоставленных копиях разборчив.</span>
+        <span>Принимаются файлы в формате PDF, JPG, PNG. и файлы не больше 5 МБ. Пожалуйста, убедитесь, что текст на предоставленных копиях разборчив.</span>
     </div>
 </template>
 
