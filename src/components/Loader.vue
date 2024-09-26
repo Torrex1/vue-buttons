@@ -9,6 +9,8 @@
         iconBoxStyle: String,
         toUploadComplete: Boolean
     })
+
+    const emit = defineEmits(['retryUpload']);
 </script>
 
 <template>
@@ -32,7 +34,7 @@
                 <span v-else>{{ maxFileSize }} КБ</span>
 
                 <div class="iconContainer">
-                    <img v-show="listStatus.includes('alert.png')" src="../assets/img/loaderIcon/reload.svg" alt="">
+                    <img @click="emit('retryUpload')" v-show="listStatus.includes('alert.png')" src="../assets/img/loaderIcon/reload.svg" alt="">
                     <img v-if="toUploadComplete" src="../assets/img/loaderIcon/trash.svg" alt="">
                     <img v-else="!toUploadComplete" src="../assets/img/loaderIcon/pause.png" alt="">    
                 </div>
