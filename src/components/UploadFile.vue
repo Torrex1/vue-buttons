@@ -95,7 +95,7 @@
 </script>
 
 <template>
-    <label>
+    <label :style="{cursor: isFileUploaded ? 'default' : 'pointer'}" >
         <input :disabled="isFileUploaded" @change="onFileChange(), getFileProperties()" type="file" accept=".png, .jpg, .pdf">
 
         <div :class="{uploadFileWrapper: !hasError, wrapperError: hasError }">
@@ -144,8 +144,6 @@ input[type="file"]:not(:disabled) + .uploadFileWrapper:hover {
     font-weight: bold;
     font-size: 18px;
 }
-
-label {cursor:pointer;}
 
 input {
     position: absolute;
