@@ -20,14 +20,21 @@
                     <img :src="listStatus" alt="">
                 </div>
                 
-                <span>{{ fileName }}</span>
+                <div style="display: flex; flex-direction: column">
+                    <span>{{ fileName }}</span>
+                    <span v-show="listStatus.includes('alert.png')" style="color: var(--alert-border)">Ошибка сети, попробуйте еще раз</span>
+                </div>
+
             </div>
         
             <div class="rigthSideBar">
                 <span v-if="!toUploadComplete">{{ loadedSize }} из {{ maxFileSize }} КБ (МБ)</span>
                 <span v-else>{{ maxFileSize }} КБ</span>
-                <div class="pauseButton">
-                    <img src="../assets/img/loaderIcon/pause.png" alt="">
+
+                <div class="iconContainer">
+                    <img v-show="listStatus.includes('alert.png')" src="../assets/img/loaderIcon/reload.svg" alt="">
+                    <img v-if="toUploadComplete" src="../assets/img/loaderIcon/trash.svg" alt="">
+                    <img v-else="!toUploadComplete" src="../assets/img/loaderIcon/pause.png" alt="">    
                 </div>
             </div>
             
@@ -71,7 +78,6 @@ progress {
 .iconBox {
     width: 44px;
     height: 44px;
-    /* background-color: #E3F2F9; */
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -83,11 +89,14 @@ progress {
     height: 24px;
 }
 
-.pauseButton img {
+.iconContainer {
+    display: flex;
+    gap: 10px;
+}
+
+.iconContainer img {
     width: 20px;
     height: 20px;
-    display: flex;
-    align-items: center;
     cursor: pointer;
 }
 
