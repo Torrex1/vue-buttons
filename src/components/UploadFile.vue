@@ -76,12 +76,14 @@
     const checkingFileType = (file) => {
         if (file.type === 'image/jpeg' || file.type === 'image/png' 
             || file.type === 'application/pdf') {
-                hasError.value = false;
-                // переменная, привязанная к появлению загружчика
-                isFileUploaded.value = true;
-        } else {
-            hasError.value = true;
-        }
+                if (file.size <= 5 * 1024 * 1024) {
+                    hasError.value = false;
+                    // переменная, привязанная к появлению загружчика
+                    isFileUploaded.value = true;
+                } else {
+                    hasError.value = true;
+                }
+        } 
     }
 
     const fileName = ref('');
