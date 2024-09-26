@@ -5,9 +5,11 @@
 
     const url = 'https://a580014e17c74889.mokky.dev/uploads';
     
+    //запоминает файл для загрузки
+    const selectedFile = ref(null);
     const onFileChange = () => {
         const file = event.target.files[0];
-
+        selectedFile.value = file;
         checkingFileType(file);
         uploadFile(file);
     }
@@ -59,6 +61,14 @@
                 }
             }
             xhr.send(formData);         
+    }
+
+    // повторная отправка на сервер в случае ошибки
+    const retryUpload = async () => {
+        if (!selectedFile.value) return;
+
+        await uploadFile(selectedFile.value);
+        console.log('upload complete');
     }
 
     const loadedSize = ref(0); 
@@ -113,6 +123,7 @@
                 :statusBorderStyle="statusBorderStyle"
                 :iconBoxStyle="iconBoxStyle"
                 :toUploadComplete="toUploadComplete"
+                @retryUpload="retryUpload"
             />
         </div>     
     </label>
