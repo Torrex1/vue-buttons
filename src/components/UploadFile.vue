@@ -3,7 +3,7 @@
     import Loader from './Loader.vue';
     import UploadContent from './UploadContent.vue';
 
-    const url = 'https://a580014e17c74889.mokky.dev/uploads';
+    const url = 'https://a580014e17аывавыаывc74889.mokky.dev/items';
     
     //запоминает файл для загрузки
     const selectedFile = ref(null);
@@ -14,7 +14,7 @@
         uploadFile(file);
     }
 
-    // словарь с ссылками на картинки в зависимости от статуса сервера
+    // словарь с ссылками на иконки и стили в зависимости от статуса сервера
     const serverResponse = {
         default: 'src/assets/img/loaderIcon/file.png',
         success: 'src/assets/img/loaderIcon/tick.png',
@@ -36,10 +36,10 @@
     const uploadFile = (file) => {
             const formData = new FormData();
             formData.append('file', file);
-
+            
             const xhr = new XMLHttpRequest();
             xhr.open('POST', url);
-            
+      
             xhr.upload.onprogress = () => {
                 loadedHandler();
                 progressHandler();
@@ -58,9 +58,9 @@
                     listStatus.value = serverResponse.serverError;
                     statusBorderStyle.value = serverResponse.errorBorderStyle;
                     iconBoxStyle.value = serverResponse.errorIconBox;
-                }
+                } 
             }
-            xhr.send(formData);         
+            xhr.send(formData);     
     }
 
     // повторная отправка на сервер в случае ошибки
@@ -68,7 +68,6 @@
         if (!selectedFile.value) return;
 
         await uploadFile(selectedFile.value);
-        console.log('upload complete');
     }
 
     const loadedSize = ref(0); 
@@ -124,6 +123,7 @@
                 :iconBoxStyle="iconBoxStyle"
                 :toUploadComplete="toUploadComplete"
                 @retryUpload="retryUpload"
+                @deleteFile="deleteFile"
             />
         </div>     
     </label>
@@ -158,7 +158,7 @@ input[type="file"]:not(:disabled) + .uploadFileWrapper:hover {
 
 input {
     position: absolute;
-    /* visibility: hidden; */
+    visibility: hidden;
 }
 
 .wrapperError {
