@@ -3,7 +3,8 @@
     import Loader from './Loader.vue';
     import UploadContent from './UploadContent.vue';
 
-    const url = 'https://a580014e17аывавыаывc74889.mokky.dev/items';
+    const url = '';
+    // https://a580014e1774889.mokky.dev/items
     
     //запоминает файл для загрузки
     const selectedFile = ref(null);
