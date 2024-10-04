@@ -68,7 +68,7 @@ progress {
 
 .loaderWrapper {
     width: 100%;
-    height: 82px;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -93,7 +93,7 @@ progress {
 
 .iconContainer {
     display: flex;
-    gap: 10px;
+    gap: 8px;
 }
 
 .iconContainer img {
